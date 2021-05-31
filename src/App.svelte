@@ -1,6 +1,7 @@
 <!-- Logic -->
 <script>
 	import Navbar from './Navbar.svelte';
+	import Title from './Title.svelte';
 </script>
 
 <!-- Styling -->
@@ -8,3 +9,4 @@
 
 <!-- Markup -->
 <Navbar />
+<Title />
