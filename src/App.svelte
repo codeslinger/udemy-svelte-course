@@ -15,6 +15,11 @@
 	function removeExpense(id) {
 		expenses = expenses.filter(item => item.id !== id);
 	}
+	function deleteExpense(event) {
+		const { id, name } = event.detail;
+		console.log(name);
+		removeExpense(id);
+	}
 
 	// context
 	setContext('remove', removeExpense);
@@ -22,5 +27,5 @@
 
 <Navbar />
 <main class="content">
-	<ExpenseList {expenses} />
+	<ExpenseList {expenses} on:delete={deleteExpense} />
 </main>
