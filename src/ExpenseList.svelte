@@ -3,7 +3,6 @@
     import Expense from './Expense.svelte';
 
     export let expenses = [];
-    export let removeExpense;
 </script>
 
 <style>
@@ -16,7 +15,7 @@
     <SectionTitle title="expense list" />
     <ul>
         {#each expenses as expense, index}
-            <Expense {...expense} {removeExpense} />
+            <Expense {...expense} />
         {:else}
             <h2>currently you have no expenses</h2>
         {/each}
