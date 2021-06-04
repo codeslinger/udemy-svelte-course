@@ -9,6 +9,11 @@
 
 	// variables
 	let expenses = [...expensesData];
+
+	// functions
+	function removeExpense(id) {
+		expenses = expenses.filter(item => item.id !== id);
+	}
 </script>
 
 <!-- Styling -->
@@ -17,5 +22,5 @@
 <!-- Markup -->
 <Navbar />
 <main class="content">
-	<ExpenseList {expenses} />
+	<ExpenseList {expenses} {removeExpense} />
 </main>
