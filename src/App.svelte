@@ -4,6 +4,7 @@
 	// components
 	import Navbar from './Navbar.svelte';
 	import ExpenseList from './ExpenseList.svelte';
+	import ExpenseForm from './ExpenseForm.svelte';
 	import Totals from './Totals.svelte';
 
 	// data
@@ -29,6 +30,7 @@
 
 <Navbar />
 <main class="content">
+	<ExpenseForm />
 	<Totals title="total expenses" {total} />
 	<ExpenseList {expenses} />
 	<button type="button" class="btn btn-primary btn-block" on:click={clearExpenses}>
