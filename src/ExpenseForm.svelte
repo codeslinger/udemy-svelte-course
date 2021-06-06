@@ -1,10 +1,12 @@
 <script>
-import { loop_guard } from 'svelte/internal';
+import { is_empty } from 'svelte/internal';
 
     import Title from './Title.svelte';
 
     let name = '';
     let amount = null;
+
+    $: isEmpty = !name || !amount;
 </script>
 
 <section class="form">
@@ -18,10 +20,12 @@ import { loop_guard } from 'svelte/internal';
             <label for="amount">amount</label>
             <input type="number" id="amount" bind:value={amount} />
         </div>
-        <p class="form-empty">
-            please fill out all form fields
-        </p>
-        <button type="submit" class="btn btn-block">
+        {#if isEmpty}
+            <p class="form-empty">
+                please fill out all form fields
+            </p>
+        {/if}
+        <button type="submit" class="btn btn-block" class:disabled={isEmpty} disabled={isEmpty}>
             add expense
         </button>
         <button type="button" class="close-btn">
