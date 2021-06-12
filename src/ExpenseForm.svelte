@@ -1,7 +1,7 @@
 <script>
-import { is_empty } from 'svelte/internal';
-
     import Title from './Title.svelte';
+
+    export let addExpense;
 
     let name = '';
     let amount = null;
@@ -9,7 +9,7 @@ import { is_empty } from 'svelte/internal';
     $: isEmpty = !name || !amount;
 
     function handleSubmit() {
-        console.log({name, amount});
+        addExpense({name, amount});
         name = '';
         amount = null;
     }

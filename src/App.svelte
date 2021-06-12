@@ -17,6 +17,14 @@
 	$: total = expenses.reduce((accum, elem) => accum + elem.amount, 0);
 
 	// functions
+	function addExpense({name, amount}) {
+		const expense = {
+			id: Math.random() * Date.now(),
+			name,
+			amount
+		};
+		expenses = [expense, ...expenses];
+	}
 	function removeExpense(id) {
 		expenses = expenses.filter(item => item.id !== id);
 	}
@@ -30,7 +38,7 @@
 
 <Navbar />
 <main class="content">
-	<ExpenseForm />
+	<ExpenseForm {addExpense} />
 	<Totals title="total expenses" {total} />
 	<ExpenseList {expenses} />
 	<button type="button" class="btn btn-primary btn-block" on:click={clearExpenses}>
